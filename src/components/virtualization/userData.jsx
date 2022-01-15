@@ -4,10 +4,10 @@ import './userData.css';
 const UserData = (props)=>{
     const [dimension , setDimension] = useState("");
     const [measures , setMeasures] = useState([]);
+    const [reset,setReset] = useState(false);
 
     useEffect(()=>{
-        console.log("mess",measures,dimension);
-        props.handleData({ measures:[...measures],dimension:dimension});
+        props.handleData({ measures:[...measures],dimension:dimension},reset);
     },[dimension,measures])
 
     const allowDrop = (ev)=>{
@@ -16,7 +16,6 @@ const UserData = (props)=>{
     const dropDimension = (ev)=>{
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        console.log("here",document.getElementById(data).getAttribute("type"));
         if(document.getElementById(data).getAttribute("type") === "dimension"){
             ev.target.appendChild(document.getElementById(data));
             setDimension(document.getElementById(data).getAttribute("id"));
@@ -25,7 +24,6 @@ const UserData = (props)=>{
       const dropMeasure = (ev)=>{
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        console.log("here",document.getElementById(data).getAttribute("type"));
         if(document.getElementById(data).getAttribute("type") === "measure"){
             ev.target.appendChild(document.getElementById(data));
             setMeasures([...measures,document.getElementById(data).getAttribute("id")]);
@@ -34,10 +32,12 @@ const UserData = (props)=>{
       const removeDimension = ()=>{
             setDimension("");
             document.getElementById("dimension").innerHTML ="";
+            setReset(true);
       }
       const removeMeasures = ()=>{
           setMeasures([]);
           document.getElementById("measures").innerHTML ="";
+          setReset(true);
       }
     return(
         <div>

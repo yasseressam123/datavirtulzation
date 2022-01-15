@@ -2,23 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './columns.css';
 
-const Columns = () => {
+const Columns = ({reset}) => {
   const [columns, setColumns] = useState([]);
   const drag = (e)=>{
-      console.log("drag", e.target.className);
-    e.dataTransfer.setData("text", e.target.id);
+       e.dataTransfer.setData("text", e.target.id);
   }
   useEffect(() => {
     axios
       .get(`https://plotter-task.herokuapp.com/columns`, {})
       .then((resp) => {
-        console.log(resp.data);
         setColumns([...resp.data]);
       })
       .catch((error) => {
-        console.log(error);
       });
-  }, []);
+  }, [reset]);
   return (
     <div className="columns">
       <div className="columns-title">

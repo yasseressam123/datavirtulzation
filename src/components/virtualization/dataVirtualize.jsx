@@ -11,7 +11,6 @@ const DataVirtualize = (props) => {
        ...props.data
       })
       .then((resp) => {
-        console.log("yasser", resp.data);
         const res = resp.data;
         setLabels([...res[0].values]);
         if(res[2]){
@@ -46,7 +45,6 @@ const DataVirtualize = (props) => {
         
       })
       .catch((error) => {
-          console.log("error",error);
           setLabels([]);
           setDatasets([]);
       });
