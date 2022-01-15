@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# project description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+the goal of this project is to visualize data in line chart
+their are two type of data dimension and measurse
+you can drag and drop data
+you can only access one dimension and multiple measurses
+
+
+# How to run project
+
+# first 
+run npm install comand
+
+# second
+run npm start comand
+
+
 
 ## Available Scripts
 
