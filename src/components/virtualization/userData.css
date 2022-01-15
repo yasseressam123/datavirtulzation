@@ -1,0 +1,21 @@
+.input-container{
+    display: flex;
+    margin: 10px 0px;
+}
+.input-container label{
+    flex: 0 0 20%;
+}
+.input-container .input{
+    display: flex;
+    height: 35px;
+    border: 2px solid;
+    flex: 0 0 60%;
+    margin-right: 10px;
+    padding: 5px;
+}
+.input-container .input div{
+    margin-right: 5px;
+}
+.input-container .dimension div{
+    flex: 0 0 100%;
+}
