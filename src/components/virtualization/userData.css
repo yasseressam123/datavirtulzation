@@ -3,7 +3,7 @@
     margin: 10px 0px;
 }
 .input-container label{
-    flex: 0 0 20%;
+    flex: 0 0 15%;
 }
 .input-container .input{
     display: flex;

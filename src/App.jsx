@@ -1,7 +1,6 @@
 import "./App.css";
 import Columns from "./components/columns/columns";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { DragDropContext, Draggable } from "react-beautiful-dnd";
 import Virtualization from './components/virtualization/virtualization';
 
 function App() {

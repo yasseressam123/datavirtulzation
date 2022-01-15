@@ -6,6 +6,7 @@ const UserData = (props)=>{
     const [measures , setMeasures] = useState([]);
 
     useEffect(()=>{
+        console.log("mess",measures,dimension);
         props.handleData({ measures:[...measures],dimension:dimension});
     },[dimension,measures])
 
@@ -31,21 +32,23 @@ const UserData = (props)=>{
         }
       }
       const removeDimension = ()=>{
-
+            setDimension("");
+            document.getElementById("dimension").innerHTML ="";
       }
       const removeMeasures = ()=>{
-          
+          setMeasures([]);
+          document.getElementById("measures").innerHTML ="";
       }
     return(
         <div>
             <div className="input-container">
                 <label htmlFor="">Dimension</label>
-                <div className="input dimension" onDrop={dropDimension} onDragOver={allowDrop}></div>
+                <div className="input dimension" id="dimension" onDrop={dropDimension} onDragOver={allowDrop}></div>
                 <button className="btn btn-primary" onClick={removeDimension}>clear</button>
             </div>
             <div className="input-container">
                 <label htmlFor="">Measures</label>
-                <div className="input" onDrop={dropMeasure} onDragOver={allowDrop}></div>
+                <div className="input" id="measures" onDrop={dropMeasure} onDragOver={allowDrop}></div>
                 <button className="btn btn-primary" onClick={removeMeasures}>clear</button>
             </div>
         </div>

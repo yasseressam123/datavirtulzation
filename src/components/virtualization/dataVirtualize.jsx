@@ -46,6 +46,9 @@ const DataVirtualize = (props) => {
         
       })
       .catch((error) => {
+          console.log("error",error);
+          setLabels([]);
+          setDatasets([]);
       });
   }, [props]);
 
